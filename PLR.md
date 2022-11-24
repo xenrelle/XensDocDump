@@ -19,7 +19,7 @@ The key is also available in the root of this repository as `key.bin`
 | Difficulty | 0x1 | The difficulty the player is set as. 0 is Classic, 1 is Expert, 2 is Master, and 3 is Journey. |
 | Play Time Ticks | 0x4 | The character's play time in ticks `(HINT: 1 millisecond = 10000 ticks)` |
 | Hair | 0x4 | Defines the player's hairstyle. |
-| Hair | 0x1 | Defines the player's hair dye. |
+| Hair Dye | 0x1 | Defines the player's hair dye. |
 | Unknown | 0x7 | Unknown. |
 | Clothes/Gender | 0x1 | Defines the character's clothing and gender selection. Values 0-4 are male, and 5-9 are female. |
 | Current Health | 0x4 | How much health the player currently has. |
