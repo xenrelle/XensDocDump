@@ -5,7 +5,7 @@ Terraria players are stored in `.plr` files, usually located in a "Players" fold
 > • For Windows, the save directory is `%UserProfile%\Documents\My Games\Terraria\Players`  
 > • For Linux, the save directory is `~/.local/share/Terraria/Players`  
   
-`.plr` files are normally encrypted in AES-128-CBC, the key being `68-00-33-00-79-00-5F-00-67-00-55-00-79-00-5A-00` (or `h3y_gUyZ` in little-endian unicode)  
+`.plr` files are normally encrypted in AES-128-CBC, the key (and IV) being `68-00-33-00-79-00-5F-00-67-00-55-00-79-00-5A-00` (or `h3y_gUyZ` in little-endian unicode)  
 The key is also available in the root of this repository as `key.bin`
 
 ## Player Values [0x00..0x??]
