@@ -8,13 +8,7 @@ Terraria players are stored in `.plr` files, usually located in a "Players" fold
 `.plr` files are normally encrypted in AES-128-CBC, the key being `68-00-33-00-79-00-5F-00-67-00-55-00-79-00-5A-00` (or `h3y_gUyZ` in little-endian unicode)  
 The key is also available in the root of this repository as `key.bin`
 
-## Header [0x00..0x29+X]
-I haven't worked out what the header means quite yet. I do, however, know the name is stored here.  
-• At offset `0x18`, the name structure is like this:  
- • The first byte defines how long the name string is. For example, if the byte is `06`, then the name is 6 characters long. We'll refer to this value as X for now.  
- • The following X bytes is the name in UTF-8. It will be as long as X
-
-## Player Values [0x2A+X..0x??]
+## Player Values [0x00..0x??]
 > NOTE: The values seem to be in little-endian from testing, but it could just be a Windows thing.  
   
 | Value | Length | Description |
