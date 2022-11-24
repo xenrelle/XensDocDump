@@ -19,7 +19,7 @@ I haven't worked out what the header means quite yet. I do, however, know the na
   
 | Value | Length | Description |
 | ----- | ------ | ----------- |
-| Clothes | 0x1 | Defines the character's clothing and gender selection. Values 1-4 are male, and 5-8 are female. |
+| Clothes | 0x1 | Defines the character's clothing and gender selection. Values 0-4 are male, and 5-9 are female. |
 | Current Health | 0x4 | How much health the player currently has. |
 | Max Health | 0x4 | The maximum amount of health the player has. Increases with Life Crystals or Life Fruit.<br/>`(Hard-capped at 500.)` |
 | Current Mana | 0x4 | How much mana the player currently has.<br/>`(Hard-capped at 400.)` |
