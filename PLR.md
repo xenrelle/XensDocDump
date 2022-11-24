@@ -9,7 +9,7 @@ The key is also available in the root of this repository as `key.bin`
 ## Header [0x00..0x29+X]
 I haven't worked out what the header means quite yet. I do, however, know the name is stored here.  
 • At offset `0x18`, the name structure is like this:  
- • The first byte defines how long the name string is. For example, if the byte is `06`, then the name is 6 characters long. We'll refer to this value as X for now.
+ • The first byte defines how long the name string is. For example, if the byte is `06`, then the name is 6 characters long. We'll refer to this value as X for now.  
  • The following X bytes is the name in UTF-8. It will be as long as X, and it is also null-terminated.
 
 ## Player Values [0x2A+X..0x??]
