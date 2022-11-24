@@ -1,4 +1,6 @@
 # Terraria .PLR file (Player)  
+> NOTE: This is only for `.plr` files generated in Terraria PC 1.4.3.6, 1.4.4.9 will be documented later  
+  
 Terraria players are stored in `.plr` files, usually located in a "Players" folder in the game's save directory. They contain nearly everything about a player, including inventory, looks, buffs, and certain flags. The only thing that isn't saved in the file are world-specific maps, which are instead stored in a folder based on the player's name.
 > • For Windows, the save directory is `%UserProfile%\Documents\My Games\Terraria\Players`  
 > • For Linux, the save directory is `~/.local/share/Terraria/Players`  
@@ -19,6 +21,6 @@ I haven't worked out what the header means quite yet. I do, however, know the na
 | ----- | ------ | ----------- |
 | Clothes | 0x1 | Defines the character's clothing and gender selection. Values 1-4 are male, and 5-8 are female. |
 | Current Health | 0x4 | How much health the player currently has. |
-| Max Health | 0x4 | The maximum amount of health the player has. Increases with Life Crystals or Life Fruit. |
-| Current Mana | 0x4 | How much mana the player currently has. |
-| Max Mana | 0x4 | The maximum amount of mana the player has. Increases with Mana Crystals.<br/>`(NOTE: Buffs that increase maximum mana don't get stored here, so the current mana could be higher than the max mana.` |
+| Max Health | 0x4 | The maximum amount of health the player has. Increases with Life Crystals or Life Fruit.<br/>`(Hard-capped at 500.)` |
+| Current Mana | 0x4 | How much mana the player currently has.<br/>`(Hard-capped at 400.)` |
+| Max Mana | 0x4 | The maximum amount of mana the player has. Increases with Mana Crystals.<br/>`(Hard-capped at 200. Buffs that increase maximum mana don't get stored here, so the current mana could be higher than the max mana.)` |
