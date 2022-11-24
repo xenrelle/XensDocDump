@@ -12,15 +12,35 @@ The key is also available in the root of this repository as `key.bin`
 I haven't worked out what the header means quite yet. I do, however, know the name is stored here.  
 • At offset `0x18`, the name structure is like this:  
  • The first byte defines how long the name string is. For example, if the byte is `06`, then the name is 6 characters long. We'll refer to this value as X for now.  
- • The following X bytes is the name in UTF-8. It will be as long as X, and it is also null-terminated.
+ • The following X bytes is the name in UTF-8. It will be as long as X
 
 ## Player Values [0x2A+X..0x??]
 > NOTE: The values seem to be in little-endian from testing, but it could just be a Windows thing.  
   
 | Value | Length | Description |
 | ----- | ------ | ----------- |
-| Clothes | 0x1 | Defines the character's clothing and gender selection. Values 0-4 are male, and 5-9 are female. |
+| Player Version | 0x1 | Defines what version the player file is. 1.4.3.6 should be `F0` |
+| Unknown | 0x17 | Unknown. |
+| Player Name | Varies | The first byte defines how long the string is. The next X bytes (defined in the length) store the string in UTF-8. (max string length is 20, so the Player Name could take up a max of 21 bytes) |\
+| Difficulty | 0x1 | The difficulty the player is set as. 0 is Classic, 1 is Expert, 2 is Master, and 3 is Journey. |
+| Play Time Ticks | 0x4 | The character's play time in ticks `(HINT: 1 millisecond = 10000 ticks)` |
+| Hair | 0x4 | Defines the player's hairstyle. |
+| Hair | 0x1 | Defines the player's hair dye. |
+| Unknown | 0x7 | Unknown. |
+| Clothes/Gender | 0x1 | Defines the character's clothing and gender selection. Values 0-4 are male, and 5-9 are female. |
 | Current Health | 0x4 | How much health the player currently has. |
 | Max Health | 0x4 | The maximum amount of health the player has. Increases with Life Crystals or Life Fruit.<br/>`(Hard-capped at 500.)` |
 | Current Mana | 0x4 | How much mana the player currently has.<br/>`(Hard-capped at 400.)` |
 | Max Mana | 0x4 | The maximum amount of mana the player has. Increases with Mana Crystals.<br/>`(Hard-capped at 200. Buffs that increase maximum mana don't get stored here, so the current mana could be higher than the max mana.)` |
+| Has Extra Accessory | 0x1(bool) | If a player has used a Demon Heart, increasing their maximum accessory slots by 1. |
+| Unlocked Biome Torches | 0x1(bool) | If a player has unlocked biome torches by surviving the Torch God event. |
+| Is Using Biome Torches | 0x1(bool) | If a player has biome torches toggled or not. |
+| Can use DD2 Sentries | 0x1(bool) | If the player is allowed to use DD2 sentries outside of the event, set to true when the event has been successfully cleared. |
+| Tax Money | 0x4 | The amount of money the Tax Collector has saved up for the player (in copper coins). |
+| Hair Colour | 0x3 | Colour of the player's hair, 3 bytes make up an RGB value. |
+| Skin Colour | 0x3 | Colour of the player's skin, 3 bytes make up an RGB value. |
+| Eye Colour | 0x3 | Colour of the player's eyes, 3 bytes make up an RGB value. |
+| Shirt Colour | 0x3 | Colour of the player's shirt, 3 bytes make up an RGB value. |
+| Undershirt Colour | 0x3 | Colour of the player's undershirt, 3 bytes make up an RGB value. |
+| Pants Colour | 0x3 | Colour of the player's pants, 3 bytes make up an RGB value. |
+| Shoe Colour | 0x3 | Colour of the player's shoes, 3 bytes make up an RGB value. |
