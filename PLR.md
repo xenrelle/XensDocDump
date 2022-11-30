@@ -1,6 +1,6 @@
 # Terraria .PLR file (Player)
 
-> NOTE: This is only for `.plr` files generated in Terraria PC 1.4.3.6, 1.4.4.9 will be documented later  
+> NOTE: This is only for `.plr` files generated in Terraria PC 1.4.4.9.
 
 Terraria players are stored in `.plr` files, usually located in a "Players" folder in the game's save directory. They contain nearly everything about a player, including inventory, looks, buffs, and certain flags. The only thing that isn't saved in the file are world-specific maps, which are instead stored in a folder based on the player's name.
 
