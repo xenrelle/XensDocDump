@@ -82,7 +82,9 @@ The key is also available in the root of this repository as `key.bin`
 | Current Loadout Index               | 0x4                                          | Int                            | Zero-based index of what loadout the player is currently using.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Loadout Info                        | 0x348 (840)                                  | [Loadout](#Loadout-Data) Array | Contains 3 loadouts structs. Note that the currently selected loadout isn't stored here (defined by Current Loadout Index), it is in the inventory instead. For the loadout that isn't stored, it is filled with `00` bytes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-## Item Data `(9 bytes)`
+## Item Data
+
+###### [0x9 bytes]
 
 Items usually take up 9 bytes.
 
@@ -92,7 +94,9 @@ Items usually take up 9 bytes.
 | Item Amount   | 0x4    | Int  | The amount of items in the stack.                                                                  |
 | Item Modifier | 0x1    | Byte | The item's prefix/modifier. See all modifier IDs [here](https://terraria.wiki.gg/wiki/Prefix_IDs). |
 
-## FavItem Data `(10 bytes)`
+## FavItem Data
+
+###### [0xA (10) bytes]
 
 These are identical to normal items, but have an extra boolean at the end specifying if the item has been favourited or not.
 
@@ -105,10 +109,13 @@ These are identical to normal items, but have an extra boolean at the end specif
 
 ## Loadout Data
 
+###### [0x118 (280) bytes]
+
 This contains data about the player's loadouts.
 
-| Value                | Length    | Type                     | Description                                                                                                                                               |
-| -------------------- | --------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Armour + Accessories | 0x5A (90) | [Item](#Item-Data) Array | Items in the player's armour and accessories slot. The first 3 being armour, and the last 7 are the accessories.                                          |
-| Social Slots         | 0x5A (90) | [Item](#Item-Data) Array | Items in the player's social slots. The first 3 being social armour, and the last 7 are the social accessories.                                           |
-| Item Visibility      | 0xA (10)  | Boolean Array            | Specifies what items should be hidden or not. The first 3 being armour (unused), and the last 7 are the accessories.<br/>`true` = Hidden, `false` = Shown |
+| Value                | Length    | Type                     | Description                                                                                                                                                                                                                                                                              |
+| -------------------- | --------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Armour + Accessories | 0x5A (90) | [Item](#Item-Data) Array | Items in the player's armour and accessories slot. The first 3 being armour, and the last 7 are the accessories.                                                                                                                                                                         |
+| Social Slots         | 0x5A (90) | [Item](#Item-Data) Array | Items in the player's social slots. The first 3 being social armour, and the last 7 are the social accessories.                                                                                                                                                                          |
+| Dyes                 | 0x5A (90) | [Item](#Item-Data) Array | Dyes in the player's slots. The first 3 being armour, and the last 7 are the accessories. See all dyes [here](https://terraria.wiki.gg/wiki/Item_IDs#ID_list). (Item IDs are shown below the dyes, if an ID isn't shown, then click on the name of the dye and it should be shown there) |
+| Item Visibility      | 0xA (10)  | Boolean Array            | Specifies what items should be hidden or not. The first 3 being armour (unused), and the last 7 are the accessories.<br/>`true` = Hidden, `false` = Shown                                                                                                                                |
