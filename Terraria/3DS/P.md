@@ -2,7 +2,7 @@
 
 > NOTE: This is only for `.p` files generated in Terraria 3DS [1.0.5](https://terraria.wiki.gg/wiki/3DS_version_history).
 
-placeholder
+p for placeholder
 
 ## Player File
 
