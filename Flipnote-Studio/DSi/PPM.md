@@ -21,7 +21,7 @@ Flipnotes are stored in `.ppm` files, containing everything about a flipnote, in
 | Page Count      | 0xC               | 0x2    | Short      | **Zero-based** count of how many pages the flipnote contains. Maximum is 999 `(0x3E6)` |
 | Version         | 0xE               | 0x2    | Short      | Contains the version of the flipnote. Latest should be 36 `(0x24)`                     |
 
-## Flipnote Metadata `[0x10..]`
+## Flipnote Metadata `[0x10..0xA0]`
 
 | Value                     | Offset (Relative) | Length | Type                      | Description                                                                                                                                                                                                                                                                                                     |
 | ------------------------- | ----------------- | ------ | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -39,7 +39,34 @@ Flipnotes are stored in `.ppm` files, containing everything about a flipnote, in
 | Last Modified Timestamp   | 0x8A              | 0x4    | Int                       | Timestamp of when the Flipnote has last modified. Timestamp is in seconds since 2000-01-01 00:00:00.                                                                                                                                                                                                            |
 | Padding                   | 0x8E              | 0x2    | Short                     | Just used for padding, so it will always be `0`.                                                                                                                                                                                                                                                                |
 
+## Thumbnail Data `[0xA0..0x6A0]`
 
+The thumbnail data is always 0x600 bytes long, every byte containing 2 pixels of data, which makes up a 64x48 image (3072 `(0xC00)` total pixels). The data is stored in a grid, consisting of 8x8 chunks starting from top-left to bottom-right (32 bytes per chunk).
+
+![](C:\Users\Lexi\Repositories\XensDocDump\Flipnote-Studio\DSi\images\grids.png)
+
+Every byte consists of two nybbles which specify what colour palette index is used in said pixel (for example: `0x61` means pixel 0 is `6`, and pixel 1 is `1`). The palette indicies are listed below.
+
+#### Thumbnail Palette Indicies
+
+| Index          | Colour                                             |
+| -------------- | -------------------------------------------------- |
+| 0 **(Unused)** | ![Colour Preview](./images/ffffff.png) `[#ffffff]` |
+| 1              | ![Colour Preview](./images/525252.png) `[#525252]` |
+| 2              | ![Colour Preview](./images/ffffff.png) `[#ffffff]` |
+| 3              | ![Colour Preview](./images/9c9c9c.png) `[#9c9c9c]` |
+| 4              | ![Colour Preview](./images/ff4844.png) `[#ff4844]` |
+| 5              | ![Colour Preview](./images/c8514f.png) `[#c8514f]` |
+| 6              | ![Colour Preview](./images/ffadac.png) `[#ffadac]` |
+| 7 **(Unused)** | ![Colour Preview](./images/00ff00.png) `[#00ff00]` |
+| 8              | ![Colour Preview](./images/4840ff.png) `[#4840ff]` |
+| 9              | ![Colour Preview](./images/514fb8.png) `[#514fb8]` |
+| A              | ![Colour Preview](./images/adabff.png) `[#adabff]` |
+| B **(Unused)** | ![Colour Preview](./images/00ff00.png) `[#00ff00]` |
+| C              | ![Colour Preview](./images/b657b7.png) `[#b657b7]` |
+| D **(Unused)** | ![Colour Preview](./images/00ff00.png) `[#00ff00]` |
+| E **(Unused)** | ![Colour Preview](./images/00ff00.png) `[#00ff00]` |
+| F **(Unused)** | ![Colour Preview](./images/00ff00.png) `[#00ff00]` |
 
 ### PPM Filename
 
