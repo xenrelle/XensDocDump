@@ -43,7 +43,7 @@ Flipnotes are stored in `.ppm` files, containing everything about a flipnote, in
 
 The thumbnail data is always 0x600 bytes long, every byte containing 2 pixels of data, which makes up a 64x48 image (3072 `(0xC00)` total pixels). The data is stored in a grid, consisting of 8x8 chunks starting from top-left to bottom-right (32 bytes per chunk).
 
-![](C:\Users\Lexi\Repositories\XensDocDump\Flipnote-Studio\DSi\images\grids.png)
+![Grid Preview](./images/grids.png)
 
 Every byte consists of two nybbles which specify what colour palette index is used in said pixel (for example: `0x61` means pixel 0 is `6`, and pixel 1 is `1`). The palette indicies are listed below.
 
